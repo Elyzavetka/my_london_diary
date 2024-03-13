@@ -1,9 +1,14 @@
-// import './Post.css'
+import React from 'react';
+// import './PhotoPost.css'
 
-const PhotoPost = ({ id, title, userId, body}) => {
+const PhotoPost = ({ id, title, userId, body }) => {
+    const images = importAll(require.context('../img', false, /\.(png|jpg|svg)$/));
     return (
         <div className='post'>
             <small>{id}</small>
+            {images.map((image, index) => (
+                <img key={index} src={image} alt={`Фото ${index + 1}`} />
+            ))}
             <h2>{title}</h2>
             <p>{body}</p>
             <h3>User ID: {userId}</h3>
@@ -11,6 +16,9 @@ const PhotoPost = ({ id, title, userId, body}) => {
     )
 }
 
+function importAll(r) {
+    return r.keys().map(r);
+}
 export default PhotoPost;
 
 // const PhotoPost = ({ photo, text, comments }) => {
