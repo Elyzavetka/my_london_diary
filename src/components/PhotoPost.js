@@ -2,6 +2,8 @@ import React from 'react';
 // import './PhotoPost.css'
 
 const PhotoPost = ({ id, title, userId, body }) => {
+    // Using Node.js function require.context
+    // to dynamically import images from the '../img' directory
     const images = importAll(require.context('../img', false, /\.(png|jpg|svg)$/));
     return (
         <div className='post'>
