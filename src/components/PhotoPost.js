@@ -9,7 +9,16 @@ const PhotoPost = ({ id, title, userId, body, img }) => {
         <div className='post'>
             <small>{id}</small>
                 <>
+                {(img.endsWith('jpg')) ? 
                     <img className="images" src={img}  alt=""  />
+                    : 
+                    <video controls="controls" width="800" height="600" name="Video Name">
+                        <source src={img}/>
+                    </video>
+                
+
+                }
+                    
                     <h2>{title}</h2>
                     <p>{body}</p>
                     <h3>User ID: {userId}</h3>

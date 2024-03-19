@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import PhotoPost from "./PhotoPost";
+import './Gallery.css'
 
 const Gallery = () => {
 
@@ -17,7 +18,7 @@ const Gallery = () => {
         .finally(() => setIsLoading(false))
     } ,[])
 
-    const images = importAll(require.context('../img', false, /\.(png|jpg|svg)$/));
+    const images = importAll(require.context('../img', false, /\.(png|jpg|svg|MOV)$/));
     console.log(images)
 
     const handlePost = () => {
@@ -35,7 +36,8 @@ const Gallery = () => {
         //     <hr />
         // </div>
         <div >
-        {isLoading ? <h1>Loading</h1> : images.map((image, index) => (
+            <h1>My London Diary</h1>
+            {isLoading ? <h1>Loading</h1> : images.map((image, index) => (
             <>
                 <div className="gallery">
                     {/* <img className="images" src={image}  alt=""  /> */}

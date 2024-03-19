@@ -1,11 +1,11 @@
 .images {
-    max-width: 400px;
+    max-width: 350px;
     border-radius: 30px;
     transition: transform 0.3s; /* Add a smooth transition effect */
-    margin: 10px auto;
-    padding-top: 10px;
+    /* margin: 5px auto; */
+    /* padding-top: 10px; */
 }
 
 .images:hover {
-    transform: scale(1.02); /* Enlarge the image by 10% on hover */
+    transform: scale(1.09); /* Enlarge the image by 10% on hover */
 }
