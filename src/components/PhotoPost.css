@@ -9,3 +9,8 @@
 .images:hover {
     transform: scale(1.09); /* Enlarge the image by 10% on hover */
 }
+
+.video {
+    max-width: 350px;
+    border-radius: 30px;
+}
