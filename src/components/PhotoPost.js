@@ -12,7 +12,7 @@ const PhotoPost = ({ id, title, userId, body, img }) => {
                 {(img.endsWith('jpg')) ? 
                     <img className="images" src={img}  alt=""  />
                     : 
-                    <video controls="controls" width="800" height="600" name="Video Name">
+                    <video className="video" controls="controls" width="800" height="600" name="Video Name">
                         <source src={img}/>
                     </video>
                 

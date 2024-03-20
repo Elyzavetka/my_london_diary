@@ -13,4 +13,9 @@
 .video {
     max-width: 350px;
     border-radius: 30px;
+    transition: transform 0.3s; /* Add a smooth transition effect */
+}
+
+.video:hover {
+    transform: scale(1.09); /* Enlarge the image by 10% on hover */
 }
