@@ -8,21 +8,22 @@ const PhotoPost = ({ id, title, userId, body, img }) => {
     return (
         <div className='post'>
             <small>{id}</small>
-                <>
-                {(img.endsWith('jpg')) ? 
-                    <img className="images" src={img}  alt=""  />
-                    : 
-                    <video className="video" controls="controls" width="800" height="600" name="Video Name">
-                        <source src={img}/>
-                    </video>
-                
-
-                }
+                <div className="image-container">
+                    {(img.endsWith('jpg')) ? 
+                        <img className="images" src={img}  alt=""  />
+                        : 
+                        <video className="video" controls="controls" width="800" height="600" name="Video Name">
+                            <source src={img}/>
+                        </video>
                     
-                    <h2>{title}</h2>
-                    <p>{body}</p>
-                    <h3>User ID: {userId}</h3>
-                </>
+
+                    }
+                        <div className="text-overlay">
+                            <h2>{title}</h2>
+                            <p>{body}</p>
+                            <h3>User ID: {userId}</h3>
+                        </div>
+                </div>
         </div>
     )
 }
