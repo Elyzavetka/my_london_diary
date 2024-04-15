@@ -14,7 +14,7 @@
     display: block;
     width: 100%;
     height: auto;
-    border-radius: 30px; /* Same border radius as the photo */
+    border-radius: 30px; 
 }
 
 .text-overlay {
