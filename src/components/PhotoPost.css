@@ -1,0 +1,31 @@
+.image-container {
+    max-width: 350px;
+    border-radius: 30px;
+    transition: transform 0.3s;
+    overflow: hidden;
+    position: relative;
+}
+
+.image-container:hover {
+    transform: scale(1.09); /* Enlarge the image by 10% on hover */
+}
+
+.image-container .image, .image-container .video {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 30px; /* Same border radius as the photo */
+}
+
+.text-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 0 10%; /* Adjusted padding to ensure overlay stays within photo boundaries */
+    box-sizing: border-box;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border-bottom-left-radius: 30px; /* Same border radius as the photo */
+    border-bottom-right-radius: 30px; /* Same border radius as the photo */
+}
