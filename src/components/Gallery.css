@@ -1,9 +1,9 @@
 h1 {
     font-family: "Great Vibes", cursive;
     font-size: 90px;
-    /* margin-bottom: 20 auto; */
+    font-weight: 100;
     margin-top: 50;
-    font-weight: normal;
+    /* font-weight: normal; */
     color:rgb(63, 41, 83);
 }
 

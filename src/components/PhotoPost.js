@@ -7,7 +7,6 @@ const PhotoPost = ({ id, title, userId, body, img }) => {
     // const images = importAll(require.context('../img', false, /\.(png|jpg|svg)$/));
     return (
         <div className='post'>
-            <small>{id}</small>
                 <div className="image-container">
                     {(img.endsWith('jpg')) ? 
                         <img className="image" src={img}  alt=""  />
