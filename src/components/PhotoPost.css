@@ -4,6 +4,9 @@
     transition: transform 0.3s;
     overflow: hidden;
     position: relative;
+    margin: 35px;
+    outline: 3px dotted rgb(156, 125, 180, 0.8) ;
+    outline-offset: 8px ;
 }
 
 .image-container:hover {
@@ -16,6 +19,27 @@
     height: auto;
     border-radius: 30px; 
 }
+
+/* .image-container:after {
+    position: absolute;
+    content: "";
+    width: 2px;
+    height: 110%;
+    background: black;
+    left: -10px;
+    top: 5%;
+    box-shadow: 220px 0 0 0 black;
+} */
+/* .image-container:before {
+    position: absolute;
+    content: "";
+    height: 2px;
+    width: 180px;
+    background: black;
+    left: 10px;
+    top: -10px;
+    box-shadow: 0 120px 0 0 black;
+} */
 
 .text-overlay {
     position: absolute;

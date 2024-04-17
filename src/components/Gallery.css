@@ -1,15 +1,14 @@
 h1 {
     font-family: "Great Vibes", cursive;
     font-size: 90px;
-    font-weight: 100;
     margin-top: 50;
-    /* font-weight: normal; */
+    font-weight: normal;
     color:rgb(63, 41, 83);
 }
 
 /* .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 5fr));
-    grid-gap: 10px; */
-    /* border: 2px solid black */
-/* } */
+    grid-gap: 10px; 
+    border: 2px solid black;
+} */
