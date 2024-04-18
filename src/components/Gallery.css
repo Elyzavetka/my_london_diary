@@ -6,9 +6,15 @@ h1 {
     color:rgb(63, 41, 83);
 }
 
-/* .gallery {
+.gallery-wrapper {
+    width: 100%;
+    max-width: 1400px;
+}
+
+.gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 5fr));
-    grid-gap: 10px; 
-    border: 2px solid black;
-} */
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 28px; 
+    margin: 20px;
+}
+

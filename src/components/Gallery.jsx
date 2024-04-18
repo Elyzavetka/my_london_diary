@@ -25,14 +25,15 @@ const Gallery = () => {
         setIsSelected(true);
     }
     return (
-        <div className="gallery">
-            <h1>My London Diary</h1>
-            {isLoading ? <h1>Loading</h1> : images.map((image, index) => (
-                <PhotoPost onHover={handlePost} key={index} {...texts[index]} img={image} />
-        ))}
-        <h1>Posts</h1>
-        <hr />
-    </div>
+        <div className="gallery-wrapper">
+            <div className="gallery">
+                {isLoading ? <h1>Loading</h1> : images.map((image, index) => (
+                    <PhotoPost onHover={handlePost} key={index} {...texts[index]} img={image} />
+                ))}
+                <h1>Posts</h1>
+                <hr />
+            </div>
+        </div>
     )
     function importAll(r) {
         return r.keys().map(r);

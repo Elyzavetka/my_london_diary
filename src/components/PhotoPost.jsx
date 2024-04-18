@@ -1,7 +1,7 @@
 import React from 'react';
 import './PhotoPost.css'
 
-const PhotoPost = ({ id, title, userId, body, img }) => {
+const PhotoPost = ({ id, title, body, img }) => {
     // Using Node.js function require.context
     // to dynamically import images from the '../img' directory
     // const images = importAll(require.context('../img', false, /\.(png|jpg|svg)$/));
@@ -11,7 +11,7 @@ const PhotoPost = ({ id, title, userId, body, img }) => {
                     {(img.endsWith('jpg')) ? 
                         <img className="image" src={img}  alt=""  />
                         : 
-                        <video className="video" controls="controls" width="800" height="600" name="Video Name">
+                        <video className="video" controls="controls" width="100%" name="Video Name">
                             <source src={img}/>
                         </video>
                     
