@@ -1,5 +1,7 @@
 import Gallery from "./Gallery";
 import PhotoPost from './PhotoPost';
+import NavBar from './NavBar';
+// import Recommendations from './Recommendations/Recomendations';
 
 const Feed =() => {
   return (
@@ -7,6 +9,7 @@ const Feed =() => {
       <h1>My London Diary</h1>
       
       <Gallery />
+      <NavBar />
     </>
   )
 }
