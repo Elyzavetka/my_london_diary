@@ -1,0 +1,20 @@
+h1 {
+    font-family: "Great Vibes", cursive;
+    font-size: 90px;
+    margin-top: 50;
+    font-weight: normal;
+    color:rgb(63, 41, 83);
+}
+
+.gallery-wrapper {
+    width: 100%;
+    max-width: 1400px;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 28px; 
+    margin: 20px;
+}
+
