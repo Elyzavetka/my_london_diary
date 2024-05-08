@@ -9,6 +9,9 @@ h1 {
 .gallery-wrapper {
     width: 100%;
     max-width: 1400px;
+    padding: 0 20px;
+    box-sizing: border-box;
+    margin: 0 auto;
 }
 
 .gallery {
