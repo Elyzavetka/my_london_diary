@@ -28,9 +28,8 @@ const Gallery = () => {
   };
   return (
     <div className="gallery-wrapper">
-      {/* <div className="gallery"> */}
-        <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 750: 3, 900: 4 }}>
-          <Masonry gutter="26px">
+        <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 750: 2, 950: 3, 1000: 4 }}>
+          <Masonry gutter="28px">
             {isLoading ? (
               <h1>Loading</h1>
             ) : (
@@ -47,7 +46,6 @@ const Gallery = () => {
         </ResponsiveMasonry>
         <h1>Posts</h1>
         <hr />
-      {/* </div> */}
     </div>
   );
   function importAll(r) {

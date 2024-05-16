@@ -14,10 +14,3 @@ h1 {
     margin: 0 auto;
 }
 
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); 
-    gap: 28px; 
-    margin: 20px;
-}
-
