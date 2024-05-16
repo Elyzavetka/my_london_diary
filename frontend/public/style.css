@@ -1,0 +1,36 @@
+/* body {
+  cursor: none;
+} */
+
+.cursor-dot {
+  /* width: 7px;
+  height: 7px;
+  background-color: rgb(63, 41, 83); */
+  width: auto;
+  height: auto;
+  background-color: transparent;
+  color: rgb(63, 41, 83);
+  font-family: "Great Vibes", cursive;
+  font-weight: bold;
+  font-size: 12px; /* Отрегулируйте размер по вашему усмотрению */
+  position: absolute;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+}
+
+.cursor-outline {
+  width: 30px;
+  height: 30px;
+  border: 2px solid rgba(63, 41, 83, 1);
+}
+
+.cursor-dot,
+.cursor-outline {
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  z-index: 1;
+  pointer-events: none;
+}
