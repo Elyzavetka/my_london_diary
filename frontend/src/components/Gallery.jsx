@@ -4,48 +4,70 @@ import PhotoPost from "./PhotoPost";
 import "./Gallery.css";
 
 const Gallery = () => {
-  const [texts, setTexts] = useState([]);
+  const [entries, setEntries] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isSelected, setIsSelected] = useState(false);
 
   useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/posts")
-      .then((response) => response.json())
-      .then((texts) => {
-        setTexts(texts);
+    fetch("http://localhost:3001/diary-entries").then((response) =>
+      response.json().then((entries) => {
+        setEntries(entries);
       })
-      .catch((error) => console.log(error.message))
-      .finally(() => setIsLoading(false));
+    );
   }, []);
 
-  const images = importAll(
-    require.context("../img", false, /\.(png|jpg|svg|MOV)$/)
-  );
-  console.log(images);
+  // useEffect(() => {
+
+  // fetch("https://jsonplaceholder.typicode.com/posts")
+  //   .then((response) => response.json())
+  //   .then((entries) => {
+  //     setEntries(entries);
+  //   })
+  //   .catch((error) => console.log(error.message))
+  //   .finally(() => setIsLoading(false));
+  // }, []);
+
+  // const images = importAll(
+  //   require.context("../img", false, /\.(png|jpg|svg|MOV)$/)
+  // );
+  // console.log(images);
 
   const handlePost = () => {
     setIsSelected(true);
   };
   return (
     <div className="gallery-wrapper">
-        <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 750: 2, 950: 3, 1000: 4 }}>
-          <Masonry gutter="28px">
-            {isLoading ? (
-              <h1>Loading</h1>
-            ) : (
-              images.map((image, index) => (
+      <ResponsiveMasonry
+        columnsCountBreakPoints={{ 350: 1, 750: 2, 950: 3, 1000: 4 }}
+      >
+        <Masonry gutter="28px">
+          {!entries.length ? (
+            <h1>Loading</h1>
+          ) : (
+            entries.map(({ title, description, img }, index) => {
+              return (
                 <PhotoPost
                   onHover={handlePost}
                   key={index}
-                  {...texts[index]}
-                  img={image}
+                  title={title}
+                  description={description}
+                  img={img}
                 />
-              ))
-            )}
-          </Masonry>
-        </ResponsiveMasonry>
-        <h1>Posts</h1>
-        <hr />
+              );
+            })
+            // images.map((image, index) => (
+            //   <PhotoPost
+            //     onHover={handlePost}
+            //     key={index}
+            //     {...entries[index]}
+            //     img={image}
+            //   />
+            // ))
+          )}
+        </Masonry>
+      </ResponsiveMasonry>
+      <h1>Posts</h1>
+      <hr />
     </div>
   );
   function importAll(r) {

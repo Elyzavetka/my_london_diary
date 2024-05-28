@@ -2,7 +2,7 @@ import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import React from "react";
 import "./PhotoPost.css";
 
-const PhotoPost = ({ id, title, body, img }) => {
+const PhotoPost = ({ id, title, description, img }) => {
   // Using Node.js function require.context
   // to dynamically import images from the '../img' directory
   // const images = importAll(require.context('../img', false, /\.(png|jpg|svg)$/));
@@ -23,7 +23,7 @@ const PhotoPost = ({ id, title, body, img }) => {
         )}
         <div className="text-overlay">
           <h2>{title}</h2>
-          <p>{body}</p>
+          <p>{description}</p>
         </div>
       </div>
     </div>
