@@ -5,7 +5,6 @@ import "./Gallery.css";
 
 const Gallery = () => {
   const [entries, setEntries] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
   const [isSelected, setIsSelected] = useState(false);
 
   useEffect(() => {
@@ -15,22 +14,6 @@ const Gallery = () => {
       })
     );
   }, []);
-
-  // useEffect(() => {
-
-  // fetch("https://jsonplaceholder.typicode.com/posts")
-  //   .then((response) => response.json())
-  //   .then((entries) => {
-  //     setEntries(entries);
-  //   })
-  //   .catch((error) => console.log(error.message))
-  //   .finally(() => setIsLoading(false));
-  // }, []);
-
-  // const images = importAll(
-  //   require.context("../img", false, /\.(png|jpg|svg|MOV)$/)
-  // );
-  // console.log(images);
 
   const handlePost = () => {
     setIsSelected(true);
@@ -55,14 +38,6 @@ const Gallery = () => {
                 />
               );
             })
-            // images.map((image, index) => (
-            //   <PhotoPost
-            //     onHover={handlePost}
-            //     key={index}
-            //     {...entries[index]}
-            //     img={image}
-            //   />
-            // ))
           )}
         </Masonry>
       </ResponsiveMasonry>
@@ -70,9 +45,6 @@ const Gallery = () => {
       <hr />
     </div>
   );
-  function importAll(r) {
-    return r.keys().map(r);
-  }
 };
 
 export default Gallery;

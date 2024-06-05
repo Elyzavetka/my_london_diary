@@ -1,11 +1,7 @@
-import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import React from "react";
 import "./PhotoPost.css";
 
 const PhotoPost = ({ id, title, description, img }) => {
-  // Using Node.js function require.context
-  // to dynamically import images from the '../img' directory
-  // const images = importAll(require.context('../img', false, /\.(png|jpg|svg)$/));
   return (
     <div className="post">
       <div className="image-container">
@@ -30,7 +26,4 @@ const PhotoPost = ({ id, title, description, img }) => {
   );
 };
 
-function importAll(r) {
-  return r.keys().map(r);
-}
 export default PhotoPost;

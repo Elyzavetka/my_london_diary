@@ -1,16 +1,15 @@
 h1 {
-    font-family: "Great Vibes", cursive;
-    font-size: 90px;
-    margin-top: 50;
-    font-weight: normal;
-    color:rgb(63, 41, 83);
+  font-family: "Great Vibes", cursive;
+  font-size: 90px;
+  margin-top: 50;
+  font-weight: normal;
+  color: rgb(63, 41, 83);
 }
 
 .gallery-wrapper {
-    width: 100%;
-    max-width: 1400px;
-    padding: 0 20px;
-    box-sizing: border-box;
-    margin: 0 auto;
+  width: 100%;
+  max-width: 1400px;
+  padding: 0 40px;
+  box-sizing: border-box;
+  margin: 0 auto;
 }
-
