@@ -21,7 +21,7 @@ const Gallery = () => {
   return (
     <div className="gallery-wrapper">
       <ResponsiveMasonry
-        columnsCountBreakPoints={{ 350: 1, 750: 2, 950: 3, 1000: 4 }}
+        columnsCountBreakPoints={{ 350: 1, 750: 1, 950: 2, 1000: 3 }}
       >
         <Masonry gutter="28px">
           {!entries.length ? (

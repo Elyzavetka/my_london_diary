@@ -4,7 +4,7 @@ import Geolocation from "../Geolocation";
 const Recomendations = () => {
   return (
     <div className={styles.recommendationsContainer}>
-      <h2>Recommendations</h2>
+      <p className={styles.recommendationsHeader}>📍Local Tips</p>
       <Geolocation />
     </div>
   );
