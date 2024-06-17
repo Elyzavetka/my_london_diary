@@ -1,3 +1,11 @@
-.todoListContainer {
-    padding: 10px;
+.recommendationsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+
+.recommendationsHeader {
+  text-align: center;
+  margin-bottom: 10px;
 }
