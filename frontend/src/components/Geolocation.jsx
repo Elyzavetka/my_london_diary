@@ -22,10 +22,17 @@ const center = {
 
 const libraries = ["places"];
 
-const Geolocation = () => {
-  const googleMapsApiKey = process.env.REACT_APP_GOOGLE_MAP_API_KEY;
-  console.log("Google Maps API Key:", googleMapsApiKey);
+async function getGoogleMapsApiKey() {
+  const response = await fetch("http://localhost:3001/api-key");
+  const apiKey = await response.json();
+  // console.log(apiKey);
+  return apiKey;
+}
+let googleMapsApiKey;
 
+const Geolocation = () => {
+  const [key, setKey] = useState("");
+  const [loading, setLoading] = useState(false);
   const [searchResult, setSearchResult] = useState("");
   const [map, setMap] = useState(null);
   const [predictions, setPredictions] = useState([]);
@@ -34,10 +41,21 @@ const Geolocation = () => {
 
   const service = useRef(null);
 
+  getGoogleMapsApiKey()
+    .then((apiKey) => {
+      // console.log("getGoogleMapsApiKey is working");
+      // console.log("API key", apiKey);
+      // googleMapsApiKey = apiKey;
+      setKey(apiKey);
+      // Now you have the API key
+    })
+    .catch((error) => {
+      console.error("Error fetching API key:", error);
+    });
+
   const { isLoaded } = useLoadScript({
     // id: "google-map-script",
-
-    // googleMapsApiKey: googleMapsApiKey,
+    // googleMapsApiKey: key || "",
 
     libraries,
     region: "UK",
