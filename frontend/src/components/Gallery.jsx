@@ -29,13 +29,15 @@ const Gallery = () => {
           ) : (
             entries.map(({ title, description, img }, index) => {
               return (
-                <PhotoPost
-                  onHover={handlePost}
-                  key={index}
-                  title={title}
-                  description={description}
-                  img={img}
-                />
+                img && (
+                  <PhotoPost
+                    onHover={handlePost}
+                    key={index}
+                    title={title}
+                    description={description}
+                    img={img}
+                  />
+                )
               );
             })
           )}

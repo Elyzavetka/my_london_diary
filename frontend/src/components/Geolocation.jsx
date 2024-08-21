@@ -20,6 +20,9 @@ const center = {
   lng: -122.4039,
 };
 
+const googleApiKey = process.env.REACT_APP_GOOGLE_MAP_API_KEY;
+console.log(googleApiKey);
+
 const libraries = ["places"];
 
 async function getGoogleMapsApiKey() {
@@ -36,6 +39,8 @@ const Geolocation = () => {
   const [searchResult, setSearchResult] = useState("");
   const [map, setMap] = useState(null);
   const [predictions, setPredictions] = useState([]);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [predictionsId, setPredictionsId] = useState(false);
 
   const [mapCenter, setMapCenter] = useState(center);
 
@@ -55,6 +60,7 @@ const Geolocation = () => {
 
   const { isLoaded } = useLoadScript({
     // id: "google-map-script",
+    googleMapsApiKey: googleApiKey,
     // googleMapsApiKey: key || "",
 
     libraries,
@@ -78,20 +84,20 @@ const Geolocation = () => {
     }
   }, [isLoaded]);
 
-  useEffect(() => {
-    console.log(service.current);
-    if (searchResult && service.current) {
-      service.current.getPlacePredictions(
-        { input: searchResult },
-        (predictions) => {
-          console.log("I am here");
-          setPredictions(predictions || []);
-        }
-      );
-    } else {
-      setPredictions([]);
-    }
-  }, [searchResult]);
+  // useEffect(() => {
+  //   console.log(service.current);
+  //   if (searchResult && service.current) {
+  //     service.current.getPlacePredictions(
+  //       { input: searchResult },
+  //       (predictions) => {
+  //         console.log("I am here");
+  //         setPredictions(predictions || []);
+  //       }
+  //     );
+  //   } else {
+  //     setPredictions([]);
+  //   }
+  // }, [searchResult]);
 
   // useEffect(() => {
   //   if (!isLoaded) return;
@@ -128,6 +134,18 @@ const Geolocation = () => {
 
   const onGetSearchResult = (e) => {
     setSearchResult(e.target.value);
+    console.log(service.current);
+    if (searchResult && service.current) {
+      service.current.getPlacePredictions(
+        { input: searchResult },
+        (predictions) => {
+          console.log("I am here");
+          setPredictions(predictions || []);
+        }
+      );
+    } else {
+      setPredictions([]);
+    }
   };
 
   const onPredictionClick = (prediction) => {
@@ -183,7 +201,16 @@ const Geolocation = () => {
             key={prediction.place_id}
             onClick={() => onPredictionClick(prediction)}
           >
-            {prediction.description}
+            <button
+              className="invisible-btn"
+              onClick={() => {
+                setModalIsOpen(true);
+                setPredictionsId(prediction.description);
+                console.log({ prediction });
+              }}
+            >
+              {prediction.description}
+            </button>
           </li>
         ))}
       </ul>
@@ -198,6 +225,17 @@ const Geolocation = () => {
       >
         {/* {marker && <Marker position={marker} />} */}
       </GoogleMap>
+      {modalIsOpen && (
+        <div className="tips-modal">
+          <div className="tips-modal-form">
+            <button onClick={() => setModalIsOpen(false)}>X</button>
+            <form>
+              <p>{predictionsId}</p>
+              <textarea />
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
