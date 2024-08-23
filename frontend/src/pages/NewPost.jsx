@@ -87,7 +87,7 @@ export const NewPost = () => {
             name="description"
           ></textarea>
         </div>
-        <div>
+        <div className="file-upload">
           <input type="file" id="img" name="img" accept="image/*" />
         </div>
         <div className="form-field">
