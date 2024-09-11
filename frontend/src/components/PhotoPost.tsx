@@ -1,7 +1,14 @@
 import React from "react";
 import "./PhotoPost.css";
 
-const PhotoPost = ({ id, title, description, img }) => {
+type PhotoPostProps = {
+  id: string;
+  title: string;
+  description: string;
+  img: string;
+};
+
+const PhotoPost = ({ id, title, description, img }: PhotoPostProps) => {
   return (
     <div className="post">
       <div className="image-container">
