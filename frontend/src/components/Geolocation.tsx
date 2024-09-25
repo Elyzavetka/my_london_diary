@@ -10,6 +10,8 @@ import usePlacesAutocomplete, {
   getLatLng,
 } from "use-places-autocomplete";
 
+type AutocompleteService = google.maps.places.AutocompleteService;
+type AutocompletePrediction = google.maps.places.AutocompletePrediction;
 const mapContainerStyle = {
   width: "400px",
   height: "400px",
@@ -22,8 +24,6 @@ const center = {
 
 const googleApiKey = process.env.REACT_APP_GOOGLE_MAP_API_KEY;
 console.log(googleApiKey);
-
-const libraries = ["places"];
 
 async function getGoogleMapsApiKey() {
   const response = await fetch("http://localhost:3001/api-key");
@@ -38,13 +38,13 @@ const Geolocation = () => {
   const [loading, setLoading] = useState(false);
   const [searchResult, setSearchResult] = useState("");
   const [map, setMap] = useState(null);
-  const [predictions, setPredictions] = useState([]);
+  const [predictions, setPredictions] = useState<AutocompletePrediction[]>([]);
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [predictionsId, setPredictionsId] = useState(false);
+  const [predictionAddress, setPredictionAddress] = useState("");
 
   const [mapCenter, setMapCenter] = useState(center);
 
-  const service = useRef(null);
+  const service = useRef<AutocompleteService | null>(null);
 
   getGoogleMapsApiKey()
     .then((apiKey) => {
@@ -60,10 +60,10 @@ const Geolocation = () => {
 
   const { isLoaded } = useLoadScript({
     // id: "google-map-script",
-    googleMapsApiKey: googleApiKey,
+    googleMapsApiKey: googleApiKey!,
     // googleMapsApiKey: key || "",
 
-    libraries,
+    libraries: ["places"],
     region: "UK",
   });
 
@@ -78,11 +78,11 @@ const Geolocation = () => {
     }
   }, [isLoaded]);
 
-  useEffect(() => {
-    if (isLoaded && !service.current) {
-      service.current = new window.google.maps.places.AutocompleteService();
-    }
-  }, [isLoaded]);
+  // useEffect(() => {
+  //   if (isLoaded && !service.current) {
+  //     service.current = new window.google.maps.places.AutocompleteService();
+  //   }
+  // }, [isLoaded]);
 
   // useEffect(() => {
   //   console.log(service.current);
@@ -154,8 +154,10 @@ const Geolocation = () => {
 
     geocoder.geocode({ placeId: prediction.place_id }, (results, status) => {
       if (status === window.google.maps.GeocoderStatus.OK) {
-        const { location } = results[0].geometry;
-        setMapCenter({ lat: location.lat(), lng: location.lng() });
+        if (results) {
+          const { location } = results[0].geometry;
+          setMapCenter({ lat: location.lat(), lng: location.lng() });
+        }
       }
     });
   };
@@ -205,7 +207,7 @@ const Geolocation = () => {
               className="invisible-btn"
               onClick={() => {
                 setModalIsOpen(true);
-                setPredictionsId(prediction.description);
+                setPredictionAddress(prediction.description);
                 console.log({ prediction });
               }}
             >
@@ -230,8 +232,12 @@ const Geolocation = () => {
           <div className="tips-modal-form">
             <button onClick={() => setModalIsOpen(false)}>X</button>
             <form>
-              <p>{predictionsId}</p>
+              <p>📍{predictionAddress}</p>
               <textarea />
+              <button type="submit">submit</button>
+              <div>
+                <input type="file" id="img" name="img" accept="image/*" />
+              </div>
             </form>
           </div>
         </div>
