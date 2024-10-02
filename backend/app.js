@@ -41,5 +41,4 @@ app.get("/diary-entries/:id", async (req, res) => {
 app.get("/api-key", async (req, res) => {
   const googleMapsApiKey = process.env.REACT_APP_GOOGLE_MAP_API_KEY;
   res.json(googleMapsApiKey);
-  console.log(googleMapsApiKey);
 });
