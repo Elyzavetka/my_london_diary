@@ -1,4 +1,5 @@
 import React from "react";
+import { useDebounce } from "@uidotdev/usehooks";
 import { useState, useCallback, useRef, useEffect } from "react";
 import {
   GoogleMap,
@@ -39,18 +40,20 @@ const Geolocation = () => {
   const [predictions, setPredictions] = useState<AutocompletePrediction[]>([]);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [predictionAddress, setPredictionAddress] = useState("");
-
   const [mapCenter, setMapCenter] = useState(center);
+  const debouncedSearchTerm = useDebounce(searchResult, 350);
 
   const service = useRef<AutocompleteService | null>(null);
 
-  getGoogleMapsApiKey()
-    .then((apiKey) => {
-      setKey(apiKey);
-    })
-    .catch((error) => {
-      console.error("Error fetching API key:", error);
-    });
+  useEffect(() => {
+    getGoogleMapsApiKey()
+      .then((apiKey) => {
+        setKey(apiKey);
+      })
+      .catch((error) => {
+        console.error("Error fetching API key:", error);
+      });
+  }, []);
 
   const { isLoaded } = useLoadScript({
     // id: "google-map-script",
@@ -75,6 +78,9 @@ const Geolocation = () => {
   const onGetSearchResult = (e) => {
     setSearchResult(e.target.value);
     console.log(service.current);
+  };
+
+  useEffect(() => {
     if (searchResult && service.current) {
       service.current.getPlacePredictions(
         { input: searchResult },
@@ -86,7 +92,7 @@ const Geolocation = () => {
     } else {
       setPredictions([]);
     }
-  };
+  }, [debouncedSearchTerm]);
 
   const onPredictionClick = (prediction) => {
     console.log(prediction);
