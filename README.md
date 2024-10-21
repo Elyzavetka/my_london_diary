@@ -3,13 +3,13 @@
 ## Table of Contents
 
 - [Project Description](#project-description)
-- [Demo](#demo)
+- [Preview](#preview)
 - [Tech Stack](#Tech-stack)
 
 ## Project Description
 A full-stack app that helps me record and store my memories of London. It allows me to save my photos along with written reflections. Users can leave local tips on recommended places by selecting a location on the integrated Google Maps API, adding descriptions, and uploading photos of recommended spots.
 
-## Demo
+## Preview
 ![cover image](https://github.com/Elyzavetka/my_london_diary/blob/main/frontend/public/images/my-london-diary.png)
 
 ## Tech Stack:
