@@ -1,70 +1,91 @@
-# Getting Started with Create React App
+# My London Diary
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Table of Contents
 
-## Available Scripts
+- [Project Description](#project-description)
+- [Preview](#preview)
+- [Tech Stack](#Tech-stack)
+- [Running the Project Locally](#running-the-project-locally)
 
-In the project directory, you can run:
+## Project Description
+A full-stack app that helps me record and store my memories of London. It allows me to save my photos along with written reflections. Users can leave local tips on recommended places by selecting a location on the integrated Google Maps API, adding descriptions, and uploading photos of recommended spots.
 
-### `npm start`
+## Preview
+![cover image](https://github.com/Elyzavetka/my_london_diary/blob/main/frontend/public/images/my-london-diary.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Tech Stack:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **JavaScript**: The primary language for both frontend and backend development.
+- **TypeScript**: A programming language based on JavaScript that adds static typing, allowing me to define variable and function types to catch errors early and improve code quality.
+- **React**: Used to build the user interface. Components are implemented to display and interact with data.
+- **Node.js**: A JavaScript runtime on the server-side, enabling communication between the client and the database.
+- **Express**: A framework for building RESTful APIs on the server side, handling routing and request processing.
+- **AWS S3**: Used for cloud storage and management of uploaded images.
+- **Google Maps API**: Integration of interactive maps, displaying locations and routes.
+- **PostgreSQL**: A relational database used to store user information and text content associated with photo posts, such as titles and descriptions.
+- **dotenv**: A module used to manage environment variables, allowing me to hide API keys and other sensitive information from the codebase.
 
-### `npm test`
+## Running the Project Locally
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To run the project on your local machine, follow these steps:
 
-### `npm run build`
+### Prerequisites
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Make sure you have the following installed on your system:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Node.js**: (v14 or later recommended) [Install Node.js](https://nodejs.org/)
+- **npm**: npm comes with Node.js.
+- **PostgreSQL**: Make sure PostgreSQL is installed and running. [Install PostgreSQL](https://www.postgresql.org/download/)
+- **AWS S3 credentials**: For cloud storage of images.
+- **Google Maps API key**: For maps integration.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Installation
 
-### `npm run eject`
+1. **Clone the repository**:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+   ```bash
+   git clone https://github.com/Elyzavetka/my_london_diary
+   cd your-repo-name
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2. **Install dependencies**:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+   To install the necessary dependencies for the project, run the following command in your terminal:
+   
+   ```bash
+   npm install
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+3. **Set Up Environment Variables**:
 
-## Learn More
+   Сreate a .env file in the root directory of your project. This file will contain sensitive information that your application needs to function correctly. Add the following       
+   environment variables to your .env file:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+   ```bash
+   # Example .env file
+   DB_HOST=localhost
+   DB_USER=your_db_user
+   DB_PASSWORD=your_db_password
+   DB_NAME=your_db_name
+   AWS_ACCESS_KEY_ID=your_aws_access_key
+   AWS_SECRET_ACCESS_KEY=your_aws_secret_key
+   GOOGLE_MAPS_API_KEY=your_google_maps_api_key
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+4. **Set Up PostgreSQL**:
 
-### Code Splitting
+   Ensure that PostgreSQL is running on your machine. You will need to create a new database for your application. You can do this by running the following command:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+   ```bash
+   createdb your_db_name
+   
+5. **Run the Project**:
 
-### Analyzing the Bundle Size
+   To start both the frontend and backend of your application, use the following command:
+   
+   ```bash
+   npm start
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+  This command will initiate both the backend server and the frontend development server simultaneously. After running this command, you should see the frontend running at       
+   http://localhost:3000, while the backend API will be available at the appropriate port (for example, http://localhost:3001).
 
-### Making a Progressive Web App
+### Additional Notes:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Make sure to configure your AWS S3 and Google Maps API keys correctly in the .env file. 
