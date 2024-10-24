@@ -9,6 +9,8 @@ import Recomendations from "./components/Recommendations/Recommendations";
 import Geolocation from "./components/Geolocation";
 import { Home } from "./pages/Home";
 import { NewPost } from "./pages/NewPost";
+import LoginPage from "./pages/Auth/LoginPage";
+import SignupPage from "./pages/Auth/SignupPage";
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
         <Routes>
           <Route index path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/signup" element={<SignupPage />} />
           <Route path="/new-post" element={<NewPost />} />
         </Routes>
       </div>

@@ -7,14 +7,29 @@ const { query } = require("./db/config");
 const app = express();
 const port = 3001;
 const bodyParser = require("body-parser");
+const userRoute = require("./routes/authRoutes");
 
 app.use(bodyParser.json({ limit: "4mb" }));
-app.use(cors());
+// app.use(cors());
+
+app.use(
+  cors({
+    origin: "*",
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true,
+  })
+);
+
+app.options("*", cors());
+
+app.use("/user", userRoute);
 
 app.listen(port, () => console.log("The app is running on port 3001"));
 
 app.get("/diary-entries", async (req, res) => {
   const result = await query("SELECT * FROM diary_entries;");
+  console.log(result);
   res.json(result.rows);
 });
 
