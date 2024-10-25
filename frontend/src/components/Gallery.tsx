@@ -1,11 +1,18 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import PhotoPost from "./PhotoPost";
 import "./Gallery.css";
 
+interface Entry {
+  id: string;
+  title: string;
+  description: string;
+  img: string;
+}
+
 const Gallery = () => {
-  const [entries, setEntries] = useState([]);
-  const [isSelected, setIsSelected] = useState(false);
+  const [entries, setEntries] = useState<Entry[]>([]);
+  const [isSelected, setIsSelected] = useState<boolean>(false);
 
   useEffect(() => {
     fetch("http://localhost:3001/diary-entries").then((response) =>
@@ -27,12 +34,13 @@ const Gallery = () => {
           {!entries.length ? (
             <h1>Loading</h1>
           ) : (
-            entries.map(({ title, description, img }, index) => {
+            entries.map(({ id, title, description, img }, index) => {
               return (
                 img && (
                   <PhotoPost
                     onHover={handlePost}
                     key={index}
+                    id={id}
                     title={title}
                     description={description}
                     img={img}
@@ -43,8 +51,6 @@ const Gallery = () => {
           )}
         </Masonry>
       </ResponsiveMasonry>
-      <h1>Posts</h1>
-      <hr />
     </div>
   );
 };

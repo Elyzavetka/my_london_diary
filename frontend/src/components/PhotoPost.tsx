@@ -6,21 +6,23 @@ type PhotoPostProps = {
   title: string;
   description: string;
   img: string;
+  onHover: () => void;
 };
 
-const PhotoPost = ({ id, title, description, img }: PhotoPostProps) => {
+const PhotoPost = ({
+  id,
+  title,
+  description,
+  img,
+  onHover,
+}: PhotoPostProps) => {
   return (
-    <div className="post">
+    <div className="post" onMouseEnter={onHover}>
       <div className="image-container">
         {img.endsWith("jpg") ? (
           <img className="image" src={img} alt="" />
         ) : (
-          <video
-            className="video"
-            controls="controls"
-            width="100%"
-            name="Video Name"
-          >
+          <video className="video" controls width="100%" title={title}>
             <source src={img} />
           </video>
         )}
