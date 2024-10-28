@@ -17,7 +17,7 @@ exports.register = async (req, res) => {
       "SELECT * FROM users WHERE username = $1",
       [username]
     );
-    if (userExists.rows.length > 0) {
+    if (userNameExists.rows.length > 0) {
       return res.status(400).json({ message: "User alredy exist" });
     }
     const hashedPassword = await bcrypt.hash(password, 10);
