@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { signup } from "../../api/auth";
+import styles from "./Signup.module.css";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
@@ -19,13 +20,14 @@ const Signup = () => {
   };
 
   return (
-    <form onSubmit={handleSignup}>
+    <form onSubmit={handleSignup} className={styles.container}>
       <input
         type="username"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
         placeholder="Username"
         required
+        className={styles.input}
       />
       <input
         type="email"
@@ -33,6 +35,7 @@ const Signup = () => {
         onChange={(e) => setEmail(e.target.value)}
         placeholder="Email"
         required
+        className={styles.input}
       />
       <input
         type="password"
@@ -40,8 +43,11 @@ const Signup = () => {
         onChange={(e) => setPassword(e.target.value)}
         placeholder="Password"
         required
+        className={styles.input}
       />
-      <button type="submit">Signup</button>
+      <button type="submit" className={styles.button}>
+        Signup
+      </button>
       {error && <p>{error}</p>}
     </form>
   );
