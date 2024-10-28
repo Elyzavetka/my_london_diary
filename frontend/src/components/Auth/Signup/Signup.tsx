@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { signup } from "../../api/auth";
+import { signup } from "../../../api/auth";
 import styles from "./Signup.module.css";
 
 const Signup = () => {
