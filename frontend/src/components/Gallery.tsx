@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import PhotoPost from "./PhotoPost";
-import "./Gallery.css";
+import "./Gallery.module.css";
 
 interface Entry {
   id: string;

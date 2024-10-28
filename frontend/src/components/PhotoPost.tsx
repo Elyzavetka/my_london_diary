@@ -1,5 +1,5 @@
 import React from "react";
-import "./PhotoPost.css";
+import "./PhotoPost.module.css";
 
 type PhotoPostProps = {
   id: string;

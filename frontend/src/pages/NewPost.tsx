@@ -5,7 +5,7 @@ import {
   S3Client,
 } from "@aws-sdk/client-s3";
 import { useState } from "react";
-import "./newPost.css";
+import "./newPost.module.css";
 import { useNavigate } from "react-router-dom";
 
 export const NewPost = () => {
