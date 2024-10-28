@@ -1,7 +1,7 @@
 const Recommendation = () => {
   return (
     <>
-      <h1>Recommendation</h1>
+      <h1>Local Gems:</h1>
     </>
   );
 };
