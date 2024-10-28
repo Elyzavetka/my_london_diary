@@ -1,4 +1,4 @@
-import Gallery from "./Gallery";
+import Gallery from "./Gallery/Gallery";
 import NavBar from "./NavBar";
 
 const Feed = () => {

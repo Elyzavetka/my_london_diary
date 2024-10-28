@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
-import PhotoPost from "./PhotoPost";
+import PhotoPost from "../PhotoPost/PhotoPost";
 import "./Gallery.module.css";
 
 interface Entry {
