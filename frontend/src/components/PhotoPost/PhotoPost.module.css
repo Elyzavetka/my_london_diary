@@ -1,4 +1,4 @@
-.image-container {
+.imageContainer {
   width: 100%;
   border-radius: 30px;
   transition: transform 0.3s;
@@ -8,19 +8,19 @@
   outline-offset: 8px;
 }
 
-.image-container:hover {
+.imageContainer:hover {
   transform: scale(1.09);
 }
 
-.image-container .image,
-.image-container .video {
+.imageContainer .image,
+.imageContainer .video {
   display: block;
   width: 100%;
   height: auto;
   border-radius: 30px;
 }
 
-.text-overlay {
+.textOverlay {
   position: absolute;
   bottom: 0;
   left: 0;

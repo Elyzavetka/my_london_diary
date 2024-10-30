@@ -1,5 +1,5 @@
 import React from "react";
-import "./PhotoPost.module.css";
+import styles from "./PhotoPost.module.css";
 
 type PhotoPostProps = {
   id: string;
@@ -17,16 +17,16 @@ const PhotoPost = ({
   onHover,
 }: PhotoPostProps) => {
   return (
-    <div className="post" onMouseEnter={onHover}>
-      <div className="image-container">
+    <div className={styles.post} onMouseEnter={onHover}>
+      <div className={styles.imageContainer}>
         {img.endsWith("jpg") ? (
-          <img className="image" src={img} alt="" />
+          <img className={styles.image} src={img} alt="" />
         ) : (
-          <video className="video" controls width="100%" title={title}>
+          <video className={styles.video} controls width="100%" title={title}>
             <source src={img} />
           </video>
         )}
-        <div className="text-overlay">
+        <div className={styles.textOverlay}>
           <h2>{title}</h2>
           <p>{description}</p>
         </div>

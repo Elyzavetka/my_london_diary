@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import PhotoPost from "../PhotoPost/PhotoPost";
-import "./Gallery.module.css";
+import styles from "./Gallery.module.css";
 
 interface Entry {
   id: string;
@@ -26,7 +26,7 @@ const Gallery = () => {
     setIsSelected(true);
   };
   return (
-    <div className="gallery-wrapper">
+    <div className={styles.galleryWrapper}>
       <ResponsiveMasonry
         columnsCountBreakPoints={{ 350: 1, 750: 1, 950: 2, 1000: 3 }}
       >

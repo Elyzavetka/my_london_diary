@@ -5,7 +5,7 @@ import {
   S3Client,
 } from "@aws-sdk/client-s3";
 import { useState } from "react";
-import "./newPost.module.css";
+import styles from "./NewPost.module.css";
 import { useNavigate } from "react-router-dom";
 
 export const NewPost = () => {
@@ -35,7 +35,6 @@ export const NewPost = () => {
 
       const client = new S3Client({
         credentials: {
-          // Replace with your credentials (we can move this to the server next time)
           accessKeyId: keyId,
           secretAccessKey: accessKey,
         },
@@ -72,28 +71,32 @@ export const NewPost = () => {
   };
 
   return (
-    <form action="#" className="form-container" onSubmit={handleSubmit}>
-      <div className="form-content">
-        <div className="form-field">
+    <form action="#" className={styles.formContainer} onSubmit={handleSubmit}>
+      <div className={styles.formContent}>
+        <div className={styles.formField}>
           <input
             type="text"
-            className="form-input"
+            className={styles.formInput}
             placeholder="Enter your message"
             name="title"
           />
         </div>
-        <div className="form-field">
+        <div className={styles.formField}>
           <textarea
-            className="form-textarea"
+            className={styles.formTextArea}
             placeholder="Enter your message"
             name="description"
           ></textarea>
         </div>
-        <div className="file-upload">
+        <div className={styles.fileUpload}>
           <input type="file" id="img" name="img" accept="image/*" required />
         </div>
-        <div className="form-field">
-          <button type="submit" className="form-button" disabled={isLoading}>
+        <div className={styles.formField}>
+          <button
+            type="submit"
+            className={styles.formButton}
+            disabled={isLoading}
+          >
             {isLoading ? "Posting..." : "Post"}
           </button>
         </div>
