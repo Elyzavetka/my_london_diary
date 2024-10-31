@@ -1,13 +1,13 @@
-import styles from "./Recommendations.module.css";
+import styles from "./LocalTips.module.css";
 import Geolocation from "../Geolocation";
-import Recommendation from "./Recommendation/Recommendation";
+import LocalTip from "./LocalTip/LocalTip";
 
 const Recomendations = () => {
   return (
     <div className={styles.recommendationsContainer}>
       <p className={styles.recommendationsHeader}>📍Local Tips</p>
       <Geolocation />
-      <Recommendation />
+      <LocalTip />
     </div>
   );
 };

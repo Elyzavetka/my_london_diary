@@ -1,5 +1,5 @@
 import Feed from "../components/Feed";
-import Recomendations from "../components/Recommendations/Recommendations";
+import LocalTips from "../components/LocalTips/LocalTips";
 
 export const Home = () => {
   return (
@@ -10,7 +10,7 @@ export const Home = () => {
           <Feed />
         </div>
         <div className="recommendations">
-          <Recomendations />
+          <LocalTips />
         </div>
       </div>
     </>

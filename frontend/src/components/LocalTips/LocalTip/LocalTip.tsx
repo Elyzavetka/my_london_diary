@@ -1,4 +1,4 @@
-const Recommendation = () => {
+const LocalTip = () => {
   return (
     <>
       <h1>Local Gems:</h1>
@@ -6,4 +6,4 @@ const Recommendation = () => {
   );
 };
 
-export default Recommendation;
+export default LocalTip;
