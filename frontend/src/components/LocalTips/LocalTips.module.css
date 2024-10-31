@@ -1,4 +1,4 @@
-.recommendationsContainer {
+.localTipsContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -6,7 +6,7 @@
   padding-right: 40px;
 }
 
-.recommendationsHeader {
+.localTipsHeader {
   text-align: center;
   margin-top: 0;
   margin-bottom: 12px;

@@ -4,8 +4,8 @@ import LocalTip from "./LocalTip/LocalTip";
 
 const Recomendations = () => {
   return (
-    <div className={styles.recommendationsContainer}>
-      <p className={styles.recommendationsHeader}>📍Local Tips</p>
+    <div className={styles.localTipsContainer}>
+      <p className={styles.localTipsHeader}>📍Local Tips</p>
       <Geolocation />
       <LocalTip />
     </div>
