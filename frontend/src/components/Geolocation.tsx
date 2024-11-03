@@ -10,6 +10,7 @@ import usePlacesAutocomplete, {
   getGeocode,
   getLatLng,
 } from "use-places-autocomplete";
+import Modal from "./Modal/Modal";
 
 type AutocompleteService = google.maps.places.AutocompleteService;
 type AutocompletePrediction = google.maps.places.AutocompletePrediction;
@@ -140,21 +141,11 @@ const Geolocation = () => {
         center={{ lat: 51.5074, lng: -0.1278 }}
         onLoad={onMapLoad}
       ></GoogleMap>
-      {modalIsOpen && (
-        <div className="tips-modal">
-          <div className="tips-modal-form">
-            <button onClick={() => setModalIsOpen(false)}>X</button>
-            <form>
-              <p>📍{predictionAddress}</p>
-              <textarea />
-              <button type="submit">submit</button>
-              <div>
-                <input type="file" id="img" name="img" accept="image/*" />
-              </div>
-            </form>
-          </div>
-        </div>
-      )}
+      <Modal
+        isOpen={modalIsOpen}
+        onClose={() => setModalIsOpen(false)}
+        address={predictionAddress}
+      />
     </div>
   );
 };
