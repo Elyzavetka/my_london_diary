@@ -11,6 +11,7 @@ import usePlacesAutocomplete, {
   getLatLng,
 } from "use-places-autocomplete";
 import Modal from "./Modal/Modal";
+import styles from "./Geolocation.module.css";
 
 type AutocompleteService = google.maps.places.AutocompleteService;
 type AutocompletePrediction = google.maps.places.AutocompletePrediction;
@@ -120,9 +121,10 @@ const Geolocation = () => {
           <li
             key={prediction.place_id}
             onClick={() => onPredictionClick(prediction)}
+            className={styles.predictionItem}
           >
             <button
-              className="invisible-btn"
+              className={styles.invisibleBtn}
               onClick={() => {
                 setModalIsOpen(true);
                 setPredictionAddress(prediction.description);
