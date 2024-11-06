@@ -34,14 +34,14 @@ async function getGoogleMapsApiKey() {
 }
 let googleMapsApiKey;
 
-const Geolocation = () => {
+const Geolocation = ({ predictionAddress, setPredictionAddress }) => {
   const [key, setKey] = useState("");
   const [loading, setLoading] = useState(false);
   const [searchResult, setSearchResult] = useState("");
   const [map, setMap] = useState(null);
   const [predictions, setPredictions] = useState<AutocompletePrediction[]>([]);
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [predictionAddress, setPredictionAddress] = useState("");
+
   const [mapCenter, setMapCenter] = useState(center);
   const debouncedSearchTerm = useDebounce(searchResult, 350);
 

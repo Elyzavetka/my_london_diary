@@ -18,3 +18,19 @@
   font-weight: normal;
   color: rgb(63, 41, 83);
 }
+.localTipHeader {
+  text-align: center;
+  margin-top: 35px;
+  margin-bottom: 12px;
+  font-style: normal;
+  font-size: 55px;
+  font-weight: normal;
+  color: rgb(63, 41, 83);
+}
+
+.fontStyleFranklin {
+  font-family: "Libre Franklin", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-size: 35px;
+}

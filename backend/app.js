@@ -10,7 +10,6 @@ const bodyParser = require("body-parser");
 const userRoute = require("./routes/authRoutes");
 
 app.use(bodyParser.json({ limit: "4mb" }));
-// app.use(cors());
 
 app.use(
   cors({
@@ -41,11 +40,25 @@ app.post("/diary-entries/new", async (req, res) => {
   res.json({ ok: "ok" });
 });
 
+app.post("/localtip/new", async (req, res) => {
+  await query(
+    `INSERT INTO recommendations (name, geolocation, description) VALUES ($1, $2, $3) RETURNING id`,
+    [req.body.name, req.body.geolocation, req.body.description]
+  );
+
+  res.json({ ok: "ok" });
+});
+
 app.get("/diary-entries/:id", async (req, res) => {
   const result = await query(
     `SELECT * FROM diary_entries WHERE id = ${req.params.id};`
   );
   res.json(result.rows[0]);
+});
+
+app.get("/localtips/", async (req, res) => {
+  const result = await query("SELECT * FROM recommendations;");
+  res.json(result.rows);
 });
 
 app.get("/api-key", async (req, res) => {

@@ -1,14 +1,7 @@
 import styles from "./LocalTip.module.css";
 
-const LocalTip = () => {
-  return (
-    <>
-      <h1 className={styles.localTipHeader}>
-        <span className={styles.fontStyleFranklin}>📍Local </span>
-        <span>Gems:</span>
-      </h1>
-    </>
-  );
+const LocalTip = ({ el }) => {
+  return <div>{el.description}</div>;
 };
 
 export default LocalTip;

@@ -14,7 +14,7 @@ export const NewPost = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
-    // Your AWS region and bucket
+    // My region and bucket
     const AWSregion = "eu-west-1";
     const AWSbucket = "my-london-diary";
 
