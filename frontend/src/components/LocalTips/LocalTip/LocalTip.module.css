@@ -1,0 +1,28 @@
+.description,
+.geolocation {
+  display: block;
+}
+
+.predictionItem {
+  margin: 5px 0;
+}
+
+.tipItem {
+  background: #e7f4f0;
+  border: 1px solid transparent;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color 0.15s ease, border-color 0.3s ease;
+}
+
+.invisibleBtn:hover {
+  background-color: #e7eaf4;
+  border-color: rgb(63, 41, 83);
+}
+
+ul {
+  padding-left: 15px;
+}
