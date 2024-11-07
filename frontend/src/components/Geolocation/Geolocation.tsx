@@ -10,7 +10,7 @@ import usePlacesAutocomplete, {
   getGeocode,
   getLatLng,
 } from "use-places-autocomplete";
-import Modal from "./Modal/Modal";
+import Modal from "../Modal/Modal";
 import styles from "./Geolocation.module.css";
 
 type AutocompleteService = google.maps.places.AutocompleteService;

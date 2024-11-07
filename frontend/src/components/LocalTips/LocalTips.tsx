@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { createContext } from "react";
 import styles from "./LocalTips.module.css";
-import Geolocation from "../Geolocation";
+import Geolocation from "../Geolocation/Geolocation";
 import LocalTip from "./LocalTip/LocalTip";
 
 export const AddressContext = createContext("");
