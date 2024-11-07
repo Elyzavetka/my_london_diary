@@ -65,13 +65,12 @@ Make sure you have the following installed on your system:
    REACT_APP_AWS_S3_KEY_ID=your_aws_key_id
    REACT_APP_AWS_S3_ACCESS_KEY=your_aws_access_key
    REACT_APP_GOOGLE_MAP_API_KEY=your_google_maps_api_key
-
+   ```
 
    For **backend**:
 
    ```bash
    # .env file for backend
-   REACT_APP_GOOGLE_MAP_API_KEY=your_google_maps_api_key
    DB_USER=your_db_user
    DB_HOST=your_db_host
    DB_NAME=your_db_name
