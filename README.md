@@ -56,27 +56,37 @@ Make sure you have the following installed on your system:
 
 3. **Set Up Environment Variables**:
 
-   Сreate a .env file in the root directory of your project. This file will contain sensitive information that your application needs to function correctly. Add the following       
-   environment variables to your .env file:
+   Create a `.env` file in the root directory of your project. This file will contain sensitive information that your application needs to function correctly. Add the          following    environment variables to your `.env` file:
+
+   For **frontend**:
 
    ```bash
-   # Example .env file
-   DB_HOST=localhost
-   DB_USER=your_db_user
-   DB_PASSWORD=your_db_password
-   DB_NAME=your_db_name
-   AWS_ACCESS_KEY_ID=your_aws_access_key
-   AWS_SECRET_ACCESS_KEY=your_aws_secret_key
-   GOOGLE_MAPS_API_KEY=your_google_maps_api_key
+   # .env file for frontend
+   REACT_APP_AWS_S3_KEY_ID=your_aws_key_id
+   REACT_APP_AWS_S3_ACCESS_KEY=your_aws_access_key
+   REACT_APP_GOOGLE_MAP_API_KEY=your_google_maps_api_key
 
-4. **Set Up PostgreSQL**:
+
+   For **backend**:
+
+   ```bash
+   # .env file for backend
+   REACT_APP_GOOGLE_MAP_API_KEY=your_google_maps_api_key
+   DB_USER=your_db_user
+   DB_HOST=your_db_host
+   DB_NAME=your_db_name
+   DB_PASSWORD=your_db_password
+   JWT_SECRET=your_jwt_secret_key
+
+
+5. **Set Up PostgreSQL**:
 
    Ensure that PostgreSQL is running on your machine. You will need to create a new database for your application. You can do this by running the following command:
 
    ```bash
    createdb your_db_name
    
-5. **Run the Project**:
+6. **Run the Project**:
 
    To start both the frontend and backend of your application, use the following command:
    
