@@ -1,3 +1,4 @@
+import React from "react";
 import { useState, useEffect } from "react";
 import { createContext } from "react";
 import styles from "./LocalTips.module.css";
