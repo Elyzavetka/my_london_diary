@@ -11,7 +11,7 @@ export const Home = () => {
     <>
       <Logout />
       <h1>My London Diary</h1>
-      {username && <div className={styles.userName}>Hello, {username}</div>}
+      {username && <div className={styles.userName}>Hi, {username}</div>}
       <div className="appContainer">
         <div className="feed">
           <Feed />

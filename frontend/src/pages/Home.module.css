@@ -1,10 +1,17 @@
 .userName {
   position: absolute;
-  top: 10px;
+  top: 3px;
   right: 160px;
   margin: 10px;
   font-size: 24px;
   color: rgb(63, 41, 83);
+  font-family: "Noto Sans JP", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+}
+
+.userNameItalic {
+  font-family: "Great Vibes", cursive;
 }
 
 @media (max-width: 768px) {

@@ -38,12 +38,13 @@ const Recomendations = () => {
       <h1 className={styles.localTipHeader}>
         <span className={styles.fontStyleFranklin}>📍Local </span>
         <span>Gems:</span>
-        <div>
-          {entries.map((el) => (
-            <LocalTip el={el} />
-          ))}
-        </div>
+        <div></div>
       </h1>
+      {entries.map((el) => (
+        <div className={styles.localTip}>
+          <LocalTip el={el} />
+        </div>
+      ))}
     </div>
   );
 };
