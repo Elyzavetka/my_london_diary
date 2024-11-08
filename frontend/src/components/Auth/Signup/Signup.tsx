@@ -12,11 +12,9 @@ const Signup = () => {
     e.preventDefault();
     try {
       const response = await signup(email, password, username);
-      // localStorage.setItem("token", response.data.token);
       localStorage.setItem("token", response.token);
       window.location.href = "/dashboard";
     } catch (err) {
-      // setError("Invalid signup credentials");
       setError(err.message);
     }
   };

@@ -12,7 +12,7 @@ export const login = async (email, password) => {
     throw new Error("Login failed");
   }
 
-  const data = await response.json(); // data now includes { token, username }
+  const data = await response.json();
   return data;
 };
 
@@ -29,8 +29,12 @@ export const signup = async (email, password, username) => {
     throw new Error("Signup failed");
   }
 
-  const data = await response.json(); // data now includes { token, username }
+  const data = await response.json();
   return data;
+};
+
+export const logout = () => {
+  localStorage.removeItem("token");
 };
 
 /*const API_URL = "http://localhost:3001";
