@@ -20,6 +20,7 @@ A full-stack app that helps me record and store my memories of London. It allows
 - **React**: Used to build the user interface. Components are implemented to display and interact with data.
 - **Context API**: Used to manage global state and pass data between components without the need for prop drilling.
 - **Node.js**: A JavaScript runtime on the server-side, enabling communication between the client and the database.
+- **RESTful API**: Used to handle communication between the frontend (React) and backend (Node.js), retrieving and manipulating data from the PostgreSQL database via HTTP requests.
 - **Express**: A framework for building RESTful APIs on the server side, handling routing and request processing.
 - **AWS S3**: Used for cloud storage and management of uploaded images.
 - **Google Maps API**: Integration of interactive maps, displaying locations and routes.
