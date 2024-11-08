@@ -18,6 +18,7 @@ A full-stack app that helps me record and store my memories of London. It allows
 - **JavaScript**: The primary language for both frontend and backend development.
 - **TypeScript**: A programming language based on JavaScript that adds static typing, allowing me to define variable and function types to catch errors early and improve code quality.
 - **React**: Used to build the user interface. Components are implemented to display and interact with data.
+- **Context API**: Used to manage global state and pass data between components without the need for prop drilling.
 - **Node.js**: A JavaScript runtime on the server-side, enabling communication between the client and the database.
 - **Express**: A framework for building RESTful APIs on the server side, handling routing and request processing.
 - **AWS S3**: Used for cloud storage and management of uploaded images.
