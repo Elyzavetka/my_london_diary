@@ -7,6 +7,7 @@ const LocalTip = ({ el }) => {
       <button className={styles.tipItem}>
         <span className={styles.geolocation}>📌 {el.geolocation}</span>
         <span className={styles.description}>{el.description}</span>
+        <span className={styles.userName}>{el.name}</span>
       </button>
     </>
   );

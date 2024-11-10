@@ -2,11 +2,14 @@ import { useContext, useState } from "react";
 import styles from "./Modal.module.css";
 import { AddressContext } from "../LocalTips/LocalTips";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
 
 const Modal = ({ isOpen, onClose }) => {
   const navigate = useNavigate();
   const address = useContext(AddressContext);
   const [isLoading, setIsLoading] = useState(false);
+
+  const { username } = useAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -20,7 +23,7 @@ const Modal = ({ isOpen, onClose }) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        // name: formData.get("name"),
+        name: username,
         geolocation: address,
         description: formData.get("description"),
       }),
