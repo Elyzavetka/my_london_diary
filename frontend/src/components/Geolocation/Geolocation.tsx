@@ -24,8 +24,13 @@ const center = {
   lng: -0.1278,
 };
 
+interface GeolocationProps {
+  predictionAddress: string;
+  setPredictionAddress: React.Dispatch<React.SetStateAction<string>>;
+  onNewRecommendation: () => Promise<void>;
+}
+
 const googleApiKey = process.env.REACT_APP_GOOGLE_MAP_API_KEY;
-console.log(googleApiKey);
 
 async function getGoogleMapsApiKey() {
   const response = await fetch("http://localhost:3001/api-key");
@@ -34,7 +39,11 @@ async function getGoogleMapsApiKey() {
 }
 let googleMapsApiKey;
 
-const Geolocation = ({ predictionAddress, setPredictionAddress }) => {
+const Geolocation: React.FC<GeolocationProps> = ({
+  predictionAddress,
+  setPredictionAddress,
+  onNewRecommendation,
+}) => {
   const [key, setKey] = useState("");
   const [loading, setLoading] = useState(false);
   const [searchResult, setSearchResult] = useState("");
@@ -146,6 +155,7 @@ const Geolocation = ({ predictionAddress, setPredictionAddress }) => {
       <Modal
         isOpen={modalIsOpen}
         onClose={() => setModalIsOpen(false)}
+        onNewRecommendation={onNewRecommendation}
         address={predictionAddress}
       />
     </div>

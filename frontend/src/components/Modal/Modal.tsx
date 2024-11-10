@@ -4,17 +4,33 @@ import { AddressContext } from "../LocalTips/LocalTips";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 
-const Modal = ({ isOpen, onClose }) => {
+interface ModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  onNewRecommendation: () => Promise<void>;
+  address: string;
+}
+
+const Modal: React.FC<ModalProps> = ({
+  isOpen,
+  onClose,
+  onNewRecommendation,
+}) => {
   const navigate = useNavigate();
   const address = useContext(AddressContext);
   const [isLoading, setIsLoading] = useState(false);
-
+  const [tip, setTip] = useState("");
   const { username } = useAuth();
 
-  const handleSubmit = async (e) => {
+  if (typeof onNewRecommendation !== "function") {
+    console.error("onNewRecommendation is not a function");
+    return null;
+  }
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsLoading(true);
-    const formData = new FormData(e.target);
+    const formData = new FormData(e.target as HTMLFormElement);
 
     await fetch("http://localhost:3001/localtip/new", {
       method: "POST",
@@ -29,6 +45,8 @@ const Modal = ({ isOpen, onClose }) => {
       }),
     });
     setIsLoading(false);
+
+    await onNewRecommendation();
     navigate("/");
     onClose();
   };

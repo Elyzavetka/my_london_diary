@@ -4,6 +4,7 @@ import { createContext } from "react";
 import styles from "./LocalTips.module.css";
 import Geolocation from "../Geolocation/Geolocation";
 import LocalTip from "./LocalTip/LocalTip";
+import Modal from "../Modal/Modal";
 
 export const AddressContext = createContext("");
 
@@ -17,13 +18,16 @@ interface Entry {
 const Recomendations = () => {
   const [entries, setEntries] = useState<Entry[]>([]);
   const [predictionAddress, setPredictionAddress] = useState("");
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  const fetchEntries = async () => {
+    const response = await fetch("http://localhost:3001/localtips/");
+    const data = await response.json();
+    setEntries(data);
+  };
 
   useEffect(() => {
-    fetch("http://localhost:3001/localtips/").then((response) =>
-      response.json().then((entries) => {
-        setEntries(entries);
-      })
-    );
+    fetchEntries();
   }, []);
 
   return (
@@ -33,6 +37,7 @@ const Recomendations = () => {
         <Geolocation
           predictionAddress={predictionAddress}
           setPredictionAddress={setPredictionAddress}
+          onNewRecommendation={fetchEntries}
         />
       </AddressContext.Provider>
       <h1 className={styles.localTipHeader}>
@@ -45,6 +50,11 @@ const Recomendations = () => {
           <LocalTip el={el} />
         </div>
       ))}
+      <Modal
+        isOpen={modalIsOpen}
+        onClose={() => setModalIsOpen(false)}
+        onNewRecommendation={fetchEntries}
+      />
     </div>
   );
 };
