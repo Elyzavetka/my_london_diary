@@ -10,8 +10,8 @@ import "./App.css";
 import { Home } from "./pages/Home/Home";
 import { NewPost } from "./pages/NewPost/NewPost";
 import PrivateRoute from "./components/PrivateRoute";
-import LoginPage from "./pages/Auth/LoginPage";
-import SignupPage from "./pages/Auth/SignupPage";
+import LoginPage from "./pages/Auth/Login/LoginPage";
+import SignupPage from "./pages/Auth/Signup/SignupPage";
 import { useAuth } from "./context/AuthContext";
 
 function App() {
