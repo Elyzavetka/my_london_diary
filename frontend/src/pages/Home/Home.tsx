@@ -1,9 +1,9 @@
 import React from "react";
-import Feed from "../components/Feed";
-import LocalTips from "../components/LocalTips/LocalTips";
-import { useAuth } from "../context/AuthContext";
+import Feed from "../../components/Feed";
+import LocalTips from "../../components/LocalTips/LocalTips";
+import { useAuth } from "../../context/AuthContext";
 import styles from "./Home.module.css";
-import Logout from "../components/Auth/Logout/Logout";
+import Logout from "../../components/Auth/Logout/Logout";
 
 export const Home = () => {
   const { username } = useAuth();
