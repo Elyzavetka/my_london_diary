@@ -23,7 +23,7 @@ const Recomendations = () => {
   const fetchEntries = async () => {
     const response = await fetch("http://localhost:3001/localtips/");
     const data = await response.json();
-    setEntries(data);
+    setEntries(data.reverse());
   };
 
   useEffect(() => {

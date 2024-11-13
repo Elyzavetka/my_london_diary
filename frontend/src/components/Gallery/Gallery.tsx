@@ -17,7 +17,7 @@ const Gallery = () => {
   useEffect(() => {
     fetch("http://localhost:3001/diary-entries").then((response) =>
       response.json().then((entries) => {
-        setEntries(entries);
+        setEntries(entries.reverse());
       })
     );
   }, []);
