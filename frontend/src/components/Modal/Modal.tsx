@@ -1,3 +1,4 @@
+import React from "react";
 import { useContext, useState } from "react";
 import styles from "./Modal.module.css";
 import { AddressContext } from "../LocalTips/LocalTips";
