@@ -13,6 +13,9 @@ A full-stack app that helps me record and store my memories of London. It allows
 ## Preview
 ![cover image](https://github.com/Elyzavetka/my_london_diary/blob/main/frontend/public/images/my-london-diary.png)
 
+## Demo
+
+
 ## Tech Stack:
 
 - **JavaScript**: The primary language for both frontend and backend development.
