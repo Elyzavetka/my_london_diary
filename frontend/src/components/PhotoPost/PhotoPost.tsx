@@ -27,8 +27,8 @@ const PhotoPost = ({
           </video>
         )}
         <div className={styles.textOverlay}>
-          <h2>{title}</h2>
-          <p>{description}</p>
+          <h2 className={styles.title}>{title}</h2>
+          <p className={styles.description}>{description}</p>
         </div>
       </div>
     </div>

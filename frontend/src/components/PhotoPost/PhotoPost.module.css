@@ -20,6 +20,16 @@
   border-radius: 30px;
 }
 
+.title {
+  padding: 0;
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+.description {
+  margin-top: 6px;
+}
+
 .textOverlay {
   position: absolute;
   bottom: 0;
