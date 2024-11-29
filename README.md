@@ -14,7 +14,7 @@ A full-stack app that helps me record and store my memories of London. It allows
 ![cover image](https://github.com/Elyzavetka/my_london_diary/blob/main/frontend/public/images/my-london-diary.png)
 
 ## Demo
-
+https://github.com/user-attachments/assets/a3d97058-6528-4c99-9c85-8d260cd4fd0e
 
 ## Tech Stack:
 
